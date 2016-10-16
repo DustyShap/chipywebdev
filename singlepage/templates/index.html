@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>#ThinkAboutIt</title>
+    <link rel="icon" href="../static/img/bryce.jpg">
+    <link rel='stylesheet' type='text/css' href='/static/css/styles.css' media='screen'>
+     <!-- <link rel='stylesheet' type='text/css' href='/static/css/styles.css' media='screen'> -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  </head>
+  
+  <body>
+    <header>
+      <span id='header_span'>Clip That Off</span>
+    </header>
+
+    <div id='checkout_div'>
+
+      <form action='/results' id='checkout_form' method='post'>
+  
+          <label for='tags'>Enter tag to search:</label><br><br>
+          <input name='tags' id='tags' class='input_fields' placeholder='6' autocomplete=off><br>
+          <input id ='button' type='submit' class='button' value="Enter a tag" disabled="disabled"><br>
+
+          <script>
+
+            $("#tags").keyup(function(){
+
+
+                if ($(this).val().length >= 3) {
+                    $("#button").prop('disabled', false).css('background-color','green').val('Shears, boy');
+                    $("#button").css('color','white');
+                }
+
+                if ($(this).val().length < 3) {
+                    $("#button").prop('disabled', true).css('background-color', 'black').css('color','white').val('Enter a tag');
+                    }
+            })
+
+          </script>
+          <h5>All audio property of <a href="www.insidestl.com">InsideSTL.com</a></h5>
+
+      </form>
+
+    </div>
+
+  </body>
+</html>

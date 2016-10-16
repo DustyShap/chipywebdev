@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Think About It</title>
+    <link rel="icon" href="../static/img/bryce.jpg">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src = "static/js/highlight.js"></script>
+
+  </head>
+
+
+  <body>
+    <header>
+       <span class ='title'>Clip That Off</span>
+    </header>
+
+    <div id='search_again'>
+      <form action='/'>
+      <input type='submit' class='try_again' value='Search Again'>
+      </form>
+    </div><br>
+    <div id='details_head'>
+
+        {% if no_drops %}
+            <p style="font-size:14px; font-weight:bold; text-align: center;">
+           No results for <span style="color: #ff0000">{{search_term}}!</span></p>
+        {% else %}
+             <p style="font-size:14px; font-weight:bold; text-align: center;">
+                Results for <span style="color: #ff0000">{{search_term}}</span></p>
+        {% endif %}
+
+            {% for drop in drops %}
+            <div id="audio_result">
+	            <audio controls>
+                <source src="http://insidestlaudio.com/drops/drops%201/{{drop.filename}}" type="audio/mp3">
+                <source src="http://insidestlaudio.com/drops/drops%201/{{drop.filename}}" type="audio/wav">
+                </audio>
+                <p class="caption">speaker: {{drop.speaker}}</p>
+                <p class="caption">transcribed: {{drop.transcription.lower()}}</p>
+            </div>
+            {% endfor %}
+
+
+            </div>
+
+    <script>
+
+        $("html").highlight("{{ search_term }}");
+    </script>
+
+
+  </body>
+</html>
+
+
