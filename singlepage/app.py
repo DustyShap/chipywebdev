@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from models import *
 
 
@@ -12,6 +12,19 @@ def home():
 
 
 
+
+
+@app.route('/process', methods=['POST'])
+def process():
+    input = request.form['tags']
+    newInput = input[::-1]
+
+    return jsonify({
+            'tags': newInput
+    })
+
+
+"""
 @app.route('/results', methods=['POST'])
 def results():
 
@@ -25,6 +38,7 @@ def results():
     return render_template('/results.html', drops = drops,
                            search_term=search_term)
 
+"""
 
 if __name__ == "__main__":
     app.run(debug=True)
