@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+import json
 from models import *
 
 
@@ -16,12 +17,14 @@ def home():
 
 @app.route('/process', methods=['POST'])
 def process():
-    input = request.form['tags']
-    newInput = input[::-1]
+    search_term = request.form['tags'].lower().strip()
+    drops = Drops.select().where(Drops.tags.contains(search_term))
+    return jsonify({'tags':search_term})
 
-    return jsonify({
-            'tags': newInput
-    })
+
+
+
+
 
 
 """
