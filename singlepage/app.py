@@ -23,7 +23,8 @@ def process():
 
 
     if drops:
-        return jsonify({'filename': drops[0].filename })
+        #return jsonify({'filename': drops[0].filename })
+        return jsonify({'filename':drops})
 
     return jsonify({'filename': 'None found!'})
 
