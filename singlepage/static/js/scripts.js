@@ -15,7 +15,7 @@ $(document).ready(function(){
 
         .done(function(data){
 
-            $("#success").text(data.tags).show();
+            $("#success").text(data.filename).show();
 
         });
 
