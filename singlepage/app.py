@@ -30,8 +30,8 @@ def process():
             }
             drops_as_dict.append(drop_as_dict)
 
-        #print(json.dumps(drops_as_dict[0]['filename']))
-        return jsonify({'filename':drops_as_dict[0]['filename']})
+        print(json.dumps(drops_as_dict))
+        return jsonify({'filename':drops_as_dict})
 
 
     return jsonify({'filename':'No results!'})
