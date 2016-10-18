@@ -13,7 +13,8 @@ $(document).ready(function(){
 
         .done(function(data){
 
-            $("#success").text(data.filename[0]).show();
+            $("#success").text(data.data[0].filename).show();
+            $("#success1").text(data.data[1].filename).show();
 
         });
 
