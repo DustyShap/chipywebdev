@@ -19,14 +19,17 @@ def home():
 def process():
     search_term = request.form['tags'].lower().strip()
     drops = Drops.select().where(Drops.tags.contains(search_term))
+    drops_as_dict = []
 
     if drops:
 
-        drops_as_dict = []
+        print('SOME!')
 
         for drop in drops:
             drop_as_dict = {
-                'filename': drop.filename
+                'filename': drop.filename,
+                'speaker': drop.speaker,
+                'transcription': drop.transcription
 
             }
             drops_as_dict.append(drop_as_dict)
@@ -35,9 +38,9 @@ def process():
 
         return jsonify({'filename':drops_as_dict})
 
+    print('NONE!')
+    return jsonify({'filename': drops_as_dict})
 
-    return jsonify({'filename':'No results!'})
-        #return jsonify({'filename': drops[0].filename })
 
 
 
