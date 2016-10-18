@@ -36,6 +36,13 @@ justify-content: center;
 
 }
 
+#results_container {
+
+  border: 1px solid black;
+  height: 500px;
+  overflow: scroll;
+
+}
 
 
 

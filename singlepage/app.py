@@ -27,11 +27,13 @@ def process():
         for drop in drops:
             drop_as_dict = {
                 'filename': drop.filename
+
             }
             drops_as_dict.append(drop_as_dict)
 
         print(json.dumps(drops_as_dict))
-        return jsonify({'data':drops_as_dict})
+
+        return jsonify({'filename':drops_as_dict})
 
 
     return jsonify({'filename':'No results!'})
