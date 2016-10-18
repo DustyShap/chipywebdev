@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-from playhouse.shortcuts import model_to_dict
 import json
 from models import *
 
@@ -21,13 +20,15 @@ def process():
     search_term = request.form['tags'].lower().strip()
     drops = Drops.select().where(Drops.tags.contains(search_term))
 
-
     if drops:
+
+        print(drops[0].filename)
+
+
+        return jsonify({'filename': drops[0].filename})
+
+
         #return jsonify({'filename': drops[0].filename })
-        return jsonify({'filename':drops})
-
-    return jsonify({'filename': 'None found!'})
-
 
 
 
