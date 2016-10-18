@@ -22,12 +22,19 @@ def process():
 
     if drops:
 
-        print(drops[0].filename)
+        drops_as_dict = []
+
+        for drop in drops:
+            drop_as_dict = {
+                'filename': drop.filename
+            }
+            drops_as_dict.append(drop_as_dict)
+
+        #print(json.dumps(drops_as_dict[0]['filename']))
+        return jsonify({'filename':drops_as_dict[0]['filename']})
 
 
-        return jsonify({'filename': drops[0].filename})
-
-
+    return jsonify({'filename':'No results!'})
         #return jsonify({'filename': drops[0].filename })
 
 
