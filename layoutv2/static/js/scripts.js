@@ -5,11 +5,12 @@ $(document).ready(function(){
 
     $('form').on('submit', function(event) {
 
+
         $("#results_container").empty()
 
         $.ajax({
             data : {
-                tags: $('#tags').val()
+                tags: $('#search_term').val()
             },
             type: 'POST',
             url: '/process'
