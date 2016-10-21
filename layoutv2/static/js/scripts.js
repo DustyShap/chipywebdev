@@ -29,12 +29,8 @@ $(document).ready(function(){
                 $('#errorAlert').hide();
                 $results.show();
                var filename = data.filename[i].filename
-               console.log(url + filename + " type='audio/mp3'>");
-               $results.append("<audio id='play' controls>" + url + filename + " type='audio/mp3'>");
-               $results.append("</audio>");
-               $results.append("<p>"+data.filename[i].speaker+"</p>")
-               $results.append("<p>"+data.filename[i].transcription+"</p>")
-               $results.append("<br>");
+               $results.append("<div class='result_object'></div>");
+               $(".result_object").append("<p>Test</p>");
             }
         });
 

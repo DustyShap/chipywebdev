@@ -12,6 +12,7 @@ def home():
     return render_template("index.html")
 
 
+
 @app.route('/process', methods=['POST'])
 def process():
     search_term = request.form['tags'].lower().strip()
@@ -36,6 +37,7 @@ def process():
 
     print('NONE!')
     return jsonify({'filename': drops_as_dict})
+
 
 
 

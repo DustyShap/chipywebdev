@@ -4,44 +4,32 @@
     <meta charset='UTF-8'>
     <title>#ThinkAboutIt</title>
     <link rel="icon" href="../static/img/bryce.jpg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' href='/static/css/styles.css' media='screen'>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <script src='/static/js/scripts.js'></script>
-      <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
-
+     <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
   </head>
-  
+
   <body>
+    <!--Begin Body-->
 
     <div id="wrapper">
-
         <div id="sidebar">
-
             <div id="title">Clip That Off</div><!--End title div-->
-            <div id="search_container">
-                <form id="form" class="form-inline "disabled:true>
-                    <input type="text" name="search_term" id="search_term" autocomplete=off placeholder="6">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form><!--End Search Form-->
-
-            </div><!--End Search Container Div -->
+                <div id="search_container">
+                    <form id="form" class="form-inline "disabled:true>
+                        <input type="text" name="search_term" id="search_term" autocomplete=off placeholder="6">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form><!--End Search Form-->
+                </div><!--End Search Container Div -->
 
             <div id="results_container">
-
-
                 <div class="result_object">
-
-
                     <div id="audio_container">
                         <audio id="play" controls>
                         <source src="http://insidestlaudio.com/drops/drops%201/CHAMP.mp3" type="audio/mp3">
                         </audio>
                     </div><!--End audio container-->
+
 
                     <div id="meta_display">
                         <p class="caption">Speaker: Timberfake</p>
@@ -51,27 +39,14 @@
                 </div><!--End Audio Result Object-->
 
 
-
             </div><!--End results div -->
 
         </div><!-- End Sidebar Div-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div><!--End Wrapper Div-->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src='/static/js/scripts.js'></script>
   </body>
+
 </html>
