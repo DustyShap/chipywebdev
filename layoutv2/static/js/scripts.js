@@ -29,8 +29,7 @@ $(document).ready(function(){
                 $('#errorAlert').hide();
                 $results.show();
                var filename = data.filename[i].filename
-               $results.append("<div class='result_object'></div>");
-               $(".result_object").append("<p>Test</p>");
+               $(".result_object").clone().appendTo($results)
             }
         });
 

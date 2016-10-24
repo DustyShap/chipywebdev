@@ -4,10 +4,11 @@ body {
 
 #wrapper {
 
-  height: 600px;
+  height: 90%;
   border: 1px solid black;
   margin: 10px;
   display: flex;
+
 }
 
 
@@ -43,6 +44,7 @@ body {
   border: 2px solid orange;
   height: 440px;
   overflow: scroll;
+
 
 }
 

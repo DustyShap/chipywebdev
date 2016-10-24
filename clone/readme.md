@@ -1,0 +1,1 @@
+Testing the jQuery clone function in order to display desired results in web app
