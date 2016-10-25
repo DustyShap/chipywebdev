@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    $.getScript('highlight.js');
     var $results = $("#results_container")
     var url = "<source src=http://insidestlaudio.com/drops/drops%201/"
     var $result_object = $("#result_object")
@@ -29,21 +30,15 @@ $(document).ready(function(){
 
                 $('#errorAlert').hide();
                 $results.show();
+
                var filename = data.filename[i].filename;
                var speaker = data.filename[i].speaker;
                var transcription = data.filename[i].transcription;
                var full_url = "http://insidestlaudio.com/drops/drops%201/" + filename;
-               console.log(full_url);
                $result_object.clone().appendTo($("#results_container")).attr('id', 'result'+i).addClass("search_result");
                $("#result"+i + " #speaker").text("Speaker: " + speaker);
                $("#result"+i + " #transcription").text("Transcription: " + transcription);
                $("#result"+i + " #src").attr('src', full_url);
-
-
-
-
-
-
 
 
             }
@@ -53,3 +48,5 @@ $(document).ready(function(){
 
     });
 });
+
+
