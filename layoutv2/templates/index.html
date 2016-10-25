@@ -23,7 +23,7 @@
                 </div><!--End Search Container Div -->
 
             <div id="results_container">
-                <div class="result_object">
+                <div id="result_object">
                     <div id="audio_container">
                         <audio id="play" controls>
                         <source src="http://insidestlaudio.com/drops/drops%201/CHAMP.mp3" type="audio/mp3">
@@ -32,16 +32,19 @@
 
 
                     <div id="meta_display">
-                        <p class="caption"></p>
-                        <p class="caption"></p>
+                        <p id="speaker">Speaker: TFake</p>
+                        <p id="transcription">Transcribed: I'm the Champ</p>
                     </div><!--End meta display-->
 
                 </div><!--End Audio Result Object-->
 
 
+
             </div><!--End results div -->
+            <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
 
         </div><!-- End Sidebar Div-->
+        <div id="testing"></div>
 
     </div><!--End Wrapper Div-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
