@@ -51,7 +51,6 @@ body {
 #result_object {
 
   display:none;
-
 }
 
 
@@ -63,7 +62,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   display:flex;
-
 
 }
 
@@ -91,7 +89,23 @@ body {
     background-color: yellow;
 }
 
+#main_wrap {
 
+  border: 2px solid pink;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#main_panel {
+
+border: 2px solid black;
+width: 95%;
+height: 95%;
+
+}
 
 
 
