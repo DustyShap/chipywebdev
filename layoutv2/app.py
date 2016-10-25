@@ -27,7 +27,8 @@ def process():
             drop_as_dict = {
                 'filename': drop.filename,
                 'speaker': drop.speaker,
-                'transcription': drop.transcription
+                'transcription': drop.transcription,
+                'search_term': search_term
             }
             drops_as_dict.append(drop_as_dict)
 
