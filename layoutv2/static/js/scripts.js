@@ -32,10 +32,14 @@ $(document).ready(function(){
                var filename = data.filename[i].filename;
                var speaker = data.filename[i].speaker;
                var transcription = data.filename[i].transcription;
-               var $resulttest = $("#result"+i);
+               var full_url = "http://insidestlaudio.com/drops/drops%201/" + filename;
+               console.log(full_url);
                $result_object.clone().appendTo($("#results_container")).attr('id', 'result'+i).addClass("search_result");
                $("#result"+i + " #speaker").text("Speaker: " + speaker);
                $("#result"+i + " #transcription").text("Transcription: " + transcription);
+               $("#result"+i + " #src").attr('src', full_url);
+
+
 
 
 
