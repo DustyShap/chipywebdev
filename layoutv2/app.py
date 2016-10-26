@@ -21,8 +21,6 @@ def process():
 
     if drops:
 
-        print('SOME!')
-
         for drop in drops:
             drop_as_dict = {
                 'filename': drop.filename,
@@ -32,11 +30,8 @@ def process():
             }
             drops_as_dict.append(drop_as_dict)
 
-        print(json.dumps(drops_as_dict))
-
         return jsonify({'filename':drops_as_dict})
 
-    print('NONE!')
     return jsonify({'filename': drops_as_dict})
 
 
