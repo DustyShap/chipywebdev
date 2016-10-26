@@ -15,8 +15,9 @@ body {
 
 
 #sidebar {
-   border: 2px solid blue;
-   width: 40%
+
+   border: 2px solid red;
+   width: 40%;
 
 }
 
@@ -149,11 +150,22 @@ align-items: center;
   flex: 1;
   margin: 5px;
 
+}
+
+
+.cell:last-child {
+
+  margin-right: 0px;
 
 }
 
-.cell:last-child {
-  margin-right: 0px;
+
+.cell:hover {
+
+  border: 2px solid black;
+  transition-duration: 0.1s;
+  box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
 }
 
 

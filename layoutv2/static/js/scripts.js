@@ -1,9 +1,7 @@
 $(document).ready(function(){
 
 
-    $(".cell").click(function(){
-        $(this).css('border','2px solid orange');
-    })
+
 
     var $results = $("#results_container")
     var url = "<source src=http://insidestlaudio.com/drops/drops%201/"
