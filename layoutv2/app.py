@@ -36,24 +36,5 @@ def process():
 
 
 
-
-
-
-"""
-@app.route('/results', methods=['POST'])
-def results():
-
-    search_term = request.form['tags'].lower().strip()
-    drops = Drops.select().where(Drops.tags.contains(search_term))
-
-    if not drops:
-        return render_template('/results.html', no_drops = True,
-                           search_term=search_term)
-
-    return render_template('/results.html', drops = drops,
-                           search_term=search_term)
-
-"""
-
 if __name__ == "__main__":
     app.run(debug=True)

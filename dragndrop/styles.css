@@ -1,0 +1,29 @@
+#wrap {
+
+	display: flex;
+	justify-content: center;
+	flex-wrap: row-reverse;
+}
+
+#container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+
+#clone {
+
+	border: 1px solid black;
+	width: 200px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+
+}
+
+#button {
+	justify-content: center;
+}

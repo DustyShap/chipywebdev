@@ -1,0 +1,1 @@
+Testing HTML5 drag and drop functionality

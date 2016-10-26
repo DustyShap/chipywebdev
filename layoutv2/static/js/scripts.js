@@ -35,8 +35,6 @@ $(document).ready(function(){
             for (var i=0; i < data.filename.length; i++){
 
 
-
-
                 $results.show();
 
 
