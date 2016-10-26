@@ -46,6 +46,7 @@ $(document).ready(function(){
                var search_term = $('#search_term').val()
                var full_url = "http://insidestlaudio.com/drops/drops%201/" + filename;
                $result_object.clone().appendTo($("#results_container")).attr('id', 'result'+i).addClass("search_result");
+               $("#result"+i).attr('draggable','True');
                $("#result"+i + " #speaker").text("Speaker: " + speaker).css('color','red');
                $("#result"+i + " #transcription").text("Transcription: " + transcription).css('color','blue');
                $("#result"+i + " #src").attr('src', full_url);
