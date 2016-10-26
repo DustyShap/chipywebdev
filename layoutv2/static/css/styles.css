@@ -1,8 +1,6 @@
 body {
   height: 100%;
-};
-
-
+}
 
 #wrapper {
 
@@ -17,9 +15,8 @@ body {
 
 
 #sidebar {
-
-   border: 2px solid red;
-   width: 40%;
+   border: 2px solid black;
+   width: 40%
 
 }
 
@@ -41,7 +38,8 @@ body {
   height: 50px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 150%;
-  border-bottom: 3px solid red;
+  border-bottom: 2px solid black;
+
 
 }
 
@@ -53,6 +51,7 @@ body {
 
   height: 430px;
   overflow: scroll;
+  margin-top: 5px;
 
 
 }
@@ -74,7 +73,7 @@ body {
 
 .search_result {
 
-  border: 2px solid red;
+  border: 2px solid black;
   height: 100px;
   flex-direction: row;
   justify-content: center;
@@ -147,36 +146,19 @@ align-items: center;
 
 
 .cell {
-  border: 2px solid red;
+  border: 1px solid red;
   width: 100%;
   flex: 1;
   margin: 5px;
 
 }
 
+.cell:hover {
+    border: 1px solid black;
+    transition-duration: 0.1s;
+    box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 
 .cell:last-child {
-
   margin-right: 0px;
-
 }
-
-
-.cell:hover {
-
-  border: 2px solid black;
-  transition-duration: 0.1s;
-  box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-
-}
-
-
-
-
-
-
-
-
-
-
-
