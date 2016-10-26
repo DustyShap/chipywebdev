@@ -8,6 +8,7 @@ body {
   border: 1px solid black;
   margin: 10px;
   display: flex;
+  padding: 15px;
 
 
 }
@@ -37,26 +38,40 @@ body {
   height: 50px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 150%;
+  border-bottom: 2px solid orange;
 
+}
+
+.btn {
+  font-size: 70%;
 }
 
 #results_container {
 
-  height: 400px;
+  height: 430px;
   overflow: scroll;
 
+
+}
+
+#no_results {
+
+  display: none;
+  text-align: center;
+  font-size: 2em;
 
 }
 
 #result_object {
 
   display:none;
+
 }
 
 
 .search_result {
 
-  border: 2px solid green;
+  border: 2px solid black;
   height: 100px;
   flex-direction: row;
   justify-content: center;
@@ -72,6 +87,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+
 }
 
 #meta_display {
@@ -91,24 +107,54 @@ body {
 
 #main_wrap {
 
-  border: 2px solid pink;
+
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 
+
 }
 
-#main_panel {
+#main_grid {
 
-border: 2px solid black;
-width: 95%;
+
+width: 97%;
 height: 95%;
+display: flex;
+flex-direction: column;
+align-items: center;
 
 }
 
 
+.row {
 
+  width: 90%;
+  flex: 1;
+  display: flex;
+
+
+}
+
+.row:last-child {
+  margin-bottom: 0px;
+}
+
+
+
+.cell {
+  border: 2px solid red;
+  width: 100%;
+  flex: 1;
+  margin: 5px;
+
+
+}
+
+.cell:last-child {
+  margin-right: 0px;
+}
 
 
 

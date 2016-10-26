@@ -1,15 +1,20 @@
 $(document).ready(function(){
 
 
+    $(".cell").click(function(){
+        $(this).css('border','2px solid orange');
+    })
 
     var $results = $("#results_container")
     var url = "<source src=http://insidestlaudio.com/drops/drops%201/"
     var $result_object = $("#result_object")
 
+
     $('form').on('submit', function(event) {
 
 
-        $("#results_container").empty()
+
+        $("#results_container").empty();
 
         $.ajax({
             data : {
@@ -22,15 +27,20 @@ $(document).ready(function(){
         .done(function(data){
 
             if (data.filename.length < 1){
+                console.log('NONE');
 
-                $results.hide();
-                $('#errorAlert').text('No Results!').css('display','flex');
+
+                $("#results_container").empty();
+
             }
 
             for (var i=0; i < data.filename.length; i++){
 
-                $('#errorAlert').hide();
+
+
+
                 $results.show();
+
 
                var filename = data.filename[i].filename;
                var speaker = data.filename[i].speaker;
@@ -38,8 +48,8 @@ $(document).ready(function(){
                var search_term = $('#search_term').val()
                var full_url = "http://insidestlaudio.com/drops/drops%201/" + filename;
                $result_object.clone().appendTo($("#results_container")).attr('id', 'result'+i).addClass("search_result");
-               $("#result"+i + " #speaker").text("Speaker: " + speaker);
-               $("#result"+i + " #transcription").text("Transcription: " + transcription);
+               $("#result"+i + " #speaker").text("Speaker: " + speaker).css('color','red');
+               $("#result"+i + " #transcription").text("Transcription: " + transcription).css('color','blue');
                $("#result"+i + " #src").attr('src', full_url);
                $("p").highlight(search_term);
 
