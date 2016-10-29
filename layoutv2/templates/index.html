@@ -18,7 +18,7 @@
                 <div id="search_container">
                     <form id="form" class="form-inline "disabled:true>
                         <input type="text" name="search_term" id="search_term" autocomplete=off placeholder="Enter a tag">
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button id="bttn" type="submit" class="btn btn-default">Submit</button>
                     </form><!--End Search Form-->
                 </div><!--End Search Container Div -->
 
@@ -27,7 +27,7 @@
                 <div id="result_object">
                     <div id="audio_container">
                         <audio id="play" controls>
-                        <source id="src" src="http://insidestlaudio.com/drops/drops%201/CHAMP.mp3" type="audio/mp3">
+                        <source class='audio_results' id="src" src="http://insidestlaudio.com/drops/drops%201/CHAMP.mp3" type="audio/mp3">
                         </audio>
                     </div><!--End audio container-->
 
@@ -47,7 +47,8 @@
             <div id="main_grid">
 
                 <div class="row">
-                    <div class="cell"></div>
+                    <div class="cell">
+                    </div>
                     <div class="cell"></div>
                     <div class="cell"></div>
                     <div class="cell"></div>
