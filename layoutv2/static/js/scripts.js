@@ -61,13 +61,20 @@ $(document).ready(function(){
 function dropped(e){
 
     var target = e.target;
-    target.removeChild(target.firstChild);
+
+    if (target.firstChild) {
+        target.removeChild(target.firstChild);
+       }
     var data = e.dataTransfer.getData('Text');
     var x = document.createElement("AUDIO");
+    var y = document.createElement("p");
+    y.innerHTML = 'NEW';
+
     x.setAttribute("src", data);
     x.setAttribute('class', 'audio_drop');
     x.controls=true
     target.appendChild(x);
+    target.appendChild(y);
 
 
 }
