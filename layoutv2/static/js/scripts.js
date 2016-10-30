@@ -1,5 +1,15 @@
 $(document).ready(function(){
 
+
+
+    $(".cell").click(function(){
+      if ($(this).find('audio').length) {
+        var audio = $(this).find('audio');
+        audio[0].play();
+        }
+
+    })
+
     var $results = $("#results_container")
     var url = "<source src=http://insidestlaudio.com/drops/drops%201/"
     var $result_object = $("#result_object")
@@ -58,25 +68,28 @@ $(document).ready(function(){
 
 });
 
+
+
+
 function dropped(e){
 
     var target = e.target;
+    if (target.getAttribute("class") === 'cell'){
 
-    if (target.firstChild) {
-        target.removeChild(target.firstChild);
-       }
-    var data = e.dataTransfer.getData('Text');
-    var x = document.createElement("AUDIO");
-    var y = document.createElement("p");
-    y.innerHTML = 'NEW';
+        if (target.firstChild) {
+            target.removeChild(target.firstChild);
+            target.innerHTML = '';
+           }
 
-    x.setAttribute("src", data);
-    x.setAttribute('class', 'audio_drop');
-    x.controls=true
-    target.appendChild(x);
-    target.appendChild(y);
+        var data = e.dataTransfer.getData('Text');
+        var x = document.createElement("AUDIO");
+        x.setAttribute("src", data);
+        x.setAttribute('id','audio');
+        x.setAttribute('class', 'audio_drop');
+        target.appendChild(x);
 
 
+    }
 }
 
 
@@ -101,7 +114,7 @@ function clickme(e){
 function doFirst(){
 
     var button = document.getElementById('bttn');
-    var theGrid = document.getElementById('main_wrap');
+    var theGrid = document.getElementById('main_grid');
     var theParent = document.getElementById("results_container");
     button.addEventListener("click", clickme, false);
     theParent.addEventListener("dragstart", dragStart, false);
