@@ -1,47 +1,3 @@
-/*
- * jQuery Highlight plugin
- *
- * Based on highlight v3 by Johann Burkard
- * http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html
- *
- * Code a little bit refactored and cleaned (in my humble opinion).
- * Most important changes:
- *  - has an option to highlight only entire words (wordsOnly - false by default),
- *  - has an option to be case sensitive (caseSensitive - false by default)
- *  - highlight element tag and class names can be specified in options
- *
- * Usage:
- *   // wrap every occurrance of text 'lorem' in content
- *   // with <span class='highlight'> (default options)
- *   $('#content').highlight('lorem');
- *
- *   // search for and highlight more terms at once
- *   // so you can save some time on traversing DOM
- *   $('#content').highlight(['lorem', 'ipsum']);
- *   $('#content').highlight('lorem ipsum');
- *
- *   // search only for entire word 'lorem'
- *   $('#content').highlight('lorem', { wordsOnly: true });
- *
- *   // don't ignore case during search of term 'lorem'
- *   $('#content').highlight('lorem', { caseSensitive: true });
- *
- *   // wrap every occurrance of term 'ipsum' in content
- *   // with <em class='important'>
- *   $('#content').highlight('ipsum', { element: 'em', className: 'important' });
- *
- *   // remove default highlight
- *   $('#content').unhighlight();
- *
- *   // remove custom highlight
- *   $('#content').unhighlight({ element: 'em', className: 'important' });
- *
- *
- * Copyright (c) 2009 Bartek Szopka
- *
- * Licensed under MIT license.
- *
- */
 
 jQuery.extend({
     highlight: function (node, re, nodeName, className) {
@@ -82,7 +38,7 @@ jQuery.fn.unhighlight = function (options) {
 jQuery.fn.highlight = function (words, options) {
     var settings = { className: 'highlight', element: 'span', caseSensitive: false, wordsOnly: false };
     jQuery.extend(settings, options);
-    
+
     if (words.constructor === String) {
         words = [words];
     }
@@ -100,7 +56,7 @@ jQuery.fn.highlight = function (words, options) {
         pattern = "\\b" + pattern + "\\b";
     }
     var re = new RegExp(pattern, flag);
-    
+
     return this.each(function () {
         jQuery.highlight(this, re, settings.element, settings.className);
     });
