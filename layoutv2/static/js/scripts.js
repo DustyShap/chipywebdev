@@ -1,23 +1,12 @@
 $(document).ready(function(){
 
 
-
-    $(".cell").click(function(){
-      if ($(this).find('audio').length) {
-        var audio = $(this).find('audio');
-        audio[0].play();
-        }
-
-    })
-
     var $results = $("#results_container")
     var url = "<source src=http://insidestlaudio.com/drops/drops%201/"
     var $result_object = $("#result_object")
 
 
     $('form').on('submit', function(event) {
-
-
 
         $("#results_container").empty();
 
@@ -33,7 +22,6 @@ $(document).ready(function(){
 
             if (data.filename.length < 1){
                 console.log('NONE');
-
 
                 $("#results_container").empty();
 
@@ -57,7 +45,6 @@ $(document).ready(function(){
                $("#result"+i + " #src").attr('src', full_url);
                $("p").highlight(search_term);
 
-
             }
         });
 
@@ -65,6 +52,22 @@ $(document).ready(function(){
 
     });
 
+    $(".cell").click(function(){
+      if ($(this).find('audio').length) {
+        var audio = $(this).find('audio');
+        audio[0].play();
+        }
+
+    });
+
+    $("#result_object").click(function(){
+      console.log('test')
+      if ($(this).find('audio').length) {
+        var audio = $(this).find('audio');
+        audio[0].play();
+        }
+
+    });
 
 });
 
@@ -73,6 +76,7 @@ $(document).ready(function(){
 
 function dropped(e){
 
+    e.preventDefault();
     var target = e.target;
     if (target.getAttribute("class") === 'cell'){
 
@@ -82,13 +86,21 @@ function dropped(e){
            }
 
         var data = e.dataTransfer.getData('Text');
+        var speaker = e.dataTransfer.getData('Text_speaker');
+        var trans = e.dataTransfer.getData('Text_trans');
         var x = document.createElement("AUDIO");
+        var y = document.createElement('p');
+        var z = document.createElement('p');
         x.setAttribute("src", data);
         x.setAttribute('id','audio');
         x.setAttribute('class', 'audio_drop');
+        y.setAttribute('class','speaker_text');
+        y.innerHTML = speaker.slice(8);
+        z.innerHTML = trans.slice(15,100);
+        z.setAttribute('class','transcripted_text');
         target.appendChild(x);
-
-
+        target.appendChild(y);
+        target.appendChild(z);
     }
 }
 
@@ -99,7 +111,12 @@ function dragStart(e){
     var audio = audio_container.firstElementChild;
     var audio_source = audio.firstElementChild;
     var source = audio_source.getAttribute('src');
+    var meta = target.lastElementChild;
+    var speaker = meta.firstElementChild.innerHTML;
+    var trans = meta.lastElementChild.innerHTML;
     e.dataTransfer.setData('Text', source);
+    e.dataTransfer.setData('Text_speaker', speaker);
+    e.dataTransfer.setData('Text_trans', trans);
 
 }
 
@@ -127,7 +144,13 @@ function doFirst(){
 }
 
 
+
 window.addEventListener("load", doFirst, false);
+
+
+
+
+
 
 
 
