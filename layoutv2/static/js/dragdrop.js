@@ -1,3 +1,19 @@
+function dragStart(e){
+    var target = e.target;
+    var audio_container = target.firstElementChild;
+    var audio = audio_container.firstElementChild;
+    var audio_source = audio.firstElementChild;
+    var source = audio_source.getAttribute('src');
+    var meta = target.lastElementChild;
+    var speaker = meta.firstElementChild.innerHTML;
+    var trans = meta.lastElementChild.innerHTML;
+    e.dataTransfer.setData('Text', source);
+    e.dataTransfer.setData('Text_speaker', speaker);
+    e.dataTransfer.setData('Text_trans', trans);
+
+}
+
+
 function dropped(e){
 
     e.preventDefault();
@@ -29,23 +45,6 @@ function dropped(e){
 }
 
 
-function dragStart(e){
-    var target = e.target;
-    var audio_container = target.firstElementChild;
-    var audio = audio_container.firstElementChild;
-    var audio_source = audio.firstElementChild;
-    var source = audio_source.getAttribute('src');
-    var meta = target.lastElementChild;
-    var speaker = meta.firstElementChild.innerHTML;
-    var trans = meta.lastElementChild.innerHTML;
-    e.dataTransfer.setData('Text', source);
-    e.dataTransfer.setData('Text_speaker', speaker);
-    e.dataTransfer.setData('Text_trans', trans);
-
-}
-
-
-
 function clickme(e){
 
     var results = document.getElementsByClassName('search_result');
@@ -62,8 +61,6 @@ function doFirst(){
     theGrid.addEventListener("dragenter", function(e){e.preventDefault();}, false);
     theGrid.addEventListener("dragover", function(e){e.preventDefault();}, false);
     theGrid.addEventListener("drop", dropped, false);
-
-
 
 }
 

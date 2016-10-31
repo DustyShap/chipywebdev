@@ -32,10 +32,18 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 300%;
-
+  font-size: 320%;
 
 }
+
+#disclaimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80%;
+}
+
+
 
 #search_container {
 
