@@ -1,5 +1,6 @@
 function dragStart(e){
 
+    console.log('dragStart');
     var target = e.target;
     var fromResult = 'true';
     var audio_container = target.firstElementChild;
@@ -9,41 +10,88 @@ function dragStart(e){
     var meta = target.lastElementChild;
     var speaker = meta.firstElementChild.innerHTML;
     var trans = meta.lastElementChild.innerHTML;
-    e.dataTransfer.setData('Text', source);
-    e.dataTransfer.setData('Text_speaker', speaker);
-    e.dataTransfer.setData('Text_trans', trans);
+    e.dataTransfer.setData('result_audio', source);
+    e.dataTransfer.setData('result_speaker', speaker);
+    e.dataTransfer.setData('result_trans', trans);
     e.dataTransfer.setData('fromResult', fromResult);
 
 
 }
 
-
-
 function cellDrag(e){
 
-
+    var fromResult = 'false';
     var target = e.target;
-    if (!!target.firstElementChild){
-        var fromResult = 'false'
-        var audio = target.firstElementChild;
-        var audio_src = audio.getAttribute('src');
-        var speaker = target.getElementsByClassName('speaker_text')[0].innerHTML;
-        var trans = target.getElementsByClassName('transcripted_text')[0].innerHTML;
-        e.dataTransfer.setData('audio', audio_src);
-        e.dataTransfer.setData('speaker', speaker);
-        e.dataTransfer.setData('trans', trans);
-        e.dataTransfer.setData('fromResult', fromResult);
-        target.innerHTML = ''
-        }
+    var audio = $('#audio').attr('src');
+    var speaker = $('.speaker_text').text();
+    var trans = $('.transcripted_text').text()
+    e.dataTransfer.setData('audio', audio);
+    e.dataTransfer.setData('speaker', speaker);
+    e.dataTransfer.setData('transcription', trans);
+    e.dataTransfer.setData('fromResult', fromResult);
+
+}
+
+function cellDrop(e){
+
+    var fromResult = e.dataTransfer.getData('fromResult');
+    var speaker = e.dataTransfer.getData('speaker');
+    if (fromResult == 'false'){
+        console.log('Dropped From Cell!');
+        console.log(speaker);
+        $('.speaker_text').val(speaker);
+
+    }
+
 }
 
 
-function newDrop(e){
-    e.preventDefault();
-    var fromResult = e.dataTransfer.getData('fromResult');
-    console.log(fromResult);
-    if (fromResult == 'true'){
 
+function dropped(e){
+
+    //Determine if the result object came from a cell
+
+    var fromResult = e.dataTransfer.getData('fromResult');
+    if (fromResult == 'false'){
+
+        var target = e.target;
+        if (target.firstChild) {
+                target.removeChild(target.firstChild);
+                target.innerHTML = '';
+               }
+
+
+        var audio_src = e.dataTransfer.getData('audio');
+        var speaker = e.dataTransfer.getData('speaker');
+        var trans = e.dataTransfer.getData('transcription');
+        console.log('Dropped From Cell!');
+        var x = document.createElement("audio");
+        var y = document.createElement('p');
+        var z = document.createElement('p');
+        x.setAttribute("src", audio_src);
+        x.setAttribute('id','audio');
+        x.setAttribute('class', 'audio_drop');
+        y.setAttribute('class','speaker_text');
+        y.innerHTML = speaker;
+        z.innerHTML = trans;
+        z.setAttribute('class','transcripted_text');
+        $(this).append(x);
+        $(this).append(y);
+        $(this).append(z);
+
+
+
+
+
+
+
+
+
+    } else {
+
+        //Determine if the result came from a search result object
+        console.log('Dropped from Result!');
+        e.preventDefault();
         var target = e.target;
         if (target.getAttribute("class") === 'cell'){
 
@@ -52,9 +100,9 @@ function newDrop(e){
                 target.innerHTML = '';
                }
 
-            var data = e.dataTransfer.getData('Text');
-            var speaker = e.dataTransfer.getData('Text_speaker');
-            var trans = e.dataTransfer.getData('Text_trans');
+            var data = e.dataTransfer.getData('result_audio');
+            var speaker = e.dataTransfer.getData('result_speaker');
+            var trans = e.dataTransfer.getData('result_trans');
             var x = document.createElement("AUDIO");
             var y = document.createElement('p');
             var z = document.createElement('p');
@@ -68,77 +116,17 @@ function newDrop(e){
             target.appendChild(x);
             target.appendChild(y);
             target.appendChild(z);
-        }
+            }
 
-    }
-    if (fromResult == 'false'){
-        console.log('FromCell');
-        }
+        };
+
+
+
+
+
+
 
 }
-
-
-function dropped(e){
-
-
-    e.preventDefault();
-    var whut = e.dataTransfer.getData('fromResult');
-    console.log(whut);
-    var target = e.target;
-    if (target.getAttribute("class") === 'cell'){
-
-        if (target.firstChild) {
-            target.removeChild(target.firstChild);
-            target.innerHTML = '';
-           }
-
-        var data = e.dataTransfer.getData('Text');
-        var speaker = e.dataTransfer.getData('Text_speaker');
-        var trans = e.dataTransfer.getData('Text_trans');
-        var x = document.createElement("AUDIO");
-        var y = document.createElement('p');
-        var z = document.createElement('p');
-        x.setAttribute("src", data);
-        x.setAttribute('id','audio');
-        x.setAttribute('class', 'audio_drop');
-        y.setAttribute('class','speaker_text');
-        y.innerHTML = speaker.slice(8);
-        z.innerHTML = trans.slice(15,100);
-        z.setAttribute('class','transcripted_text');
-        target.appendChild(x);
-        target.appendChild(y);
-        target.appendChild(z);
-    }
-}
-
-
-
-function cellDrop(e){
-
-    e.preventDefault();
-    var target = e.target;
-    var audio = e.dataTransfer.getData('audio');
-    var speaker = e.dataTransfer.getData('speaker');
-    var trans = e.dataTransfer.getData('trans');
-    var x = document.createElement("AUDIO");
-    var y = document.createElement('p');
-    var z = document.createElement('p');
-    x.setAttribute("src", audio);
-    x.setAttribute('id','audio');
-    x.setAttribute('class', 'audio_drop');
-    y.setAttribute('class','speaker_text');
-    y.innerHTML = speaker;
-    z.innerHTML = trans;
-    target.appendChild(x);
-    target.appendChild(y);
-    target.appendChild(z);
-
-    }
-
-
-
-
-
 
 
 
@@ -158,16 +146,16 @@ function doFirst(){
     for (i = 0; i < cells.length; i++){
         cells[i].setAttribute('draggable','true');
         cells[i].addEventListener("dragstart", cellDrag, false);
-        cells[i].addEventListener("drop", cellDrop, false);
+        cells[i].addEventListener("drop", dropped, false);
 
         }
     button.addEventListener("click", clickme, false);
     theParent.addEventListener("dragstart", dragStart, false);
     theGrid.addEventListener("dragenter", function(e){e.preventDefault();}, false);
     theGrid.addEventListener("dragover", function(e){e.preventDefault();}, false);
-    theGrid.addEventListener("drop", newDrop, false);
 
-}
+
+    }
 
 
 
