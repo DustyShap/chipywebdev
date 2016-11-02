@@ -8,7 +8,7 @@ body {
 
 #wrapper {
 
-  height: 100%;
+
   margin: 10px;
   display: flex;
   padding: 15px;
@@ -64,9 +64,8 @@ body {
 #results_container {
 
   height: 430px;
-  overflow: scroll;
   margin-top: 5px;
-
+  overflow: scroll;
 
 
 }
