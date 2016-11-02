@@ -1,7 +1,7 @@
 function dragStart(e){
 
     var target = e.target;
-    var fromResult = target.classList.contains('search_result');
+    var fromResult = 'true';
     var audio_container = target.firstElementChild;
     var audio = audio_container.firstElementChild;
     var audio_source = audio.firstElementChild;
@@ -14,6 +14,7 @@ function dragStart(e){
     e.dataTransfer.setData('Text_trans', trans);
     e.dataTransfer.setData('fromResult', fromResult);
 
+
 }
 
 
@@ -23,7 +24,7 @@ function cellDrag(e){
 
     var target = e.target;
     if (!!target.firstElementChild){
-        var fromResult = target.classList.contains('search_result');
+        var fromResult = 'false'
         var audio = target.firstElementChild;
         var audio_src = audio.getAttribute('src');
         var speaker = target.getElementsByClassName('speaker_text')[0].innerHTML;
@@ -36,12 +37,53 @@ function cellDrag(e){
         }
 }
 
+
+function newDrop(e){
+    e.preventDefault();
+    var fromResult = e.dataTransfer.getData('fromResult');
+    console.log(fromResult);
+    if (fromResult == 'true'){
+
+        var target = e.target;
+        if (target.getAttribute("class") === 'cell'){
+
+            if (target.firstChild) {
+                target.removeChild(target.firstChild);
+                target.innerHTML = '';
+               }
+
+            var data = e.dataTransfer.getData('Text');
+            var speaker = e.dataTransfer.getData('Text_speaker');
+            var trans = e.dataTransfer.getData('Text_trans');
+            var x = document.createElement("AUDIO");
+            var y = document.createElement('p');
+            var z = document.createElement('p');
+            x.setAttribute("src", data);
+            x.setAttribute('id','audio');
+            x.setAttribute('class', 'audio_drop');
+            y.setAttribute('class','speaker_text');
+            y.innerHTML = speaker.slice(8);
+            z.innerHTML = trans.slice(15,100);
+            z.setAttribute('class','transcripted_text');
+            target.appendChild(x);
+            target.appendChild(y);
+            target.appendChild(z);
+        }
+
+    }
+    if (fromResult == 'false'){
+        console.log('FromCell');
+        }
+
+}
+
+
 function dropped(e){
 
 
-
     e.preventDefault();
-    var fromResult = e.dataTransfer.getData('fromResult');
+    var whut = e.dataTransfer.getData('fromResult');
+    console.log(whut);
     var target = e.target;
     if (target.getAttribute("class") === 'cell'){
 
@@ -72,26 +114,25 @@ function dropped(e){
 
 
 function cellDrop(e){
-    e.preventDefault();
-    var fromResult = e.dataTransfer.getData('fromResult');
-    if (!!fromResult){
 
-        var target = e.target;
-        var audio = e.dataTransfer.getData('audio');
-        var speaker = e.dataTransfer.getData('speaker');
-        var trans = e.dataTransfer.getData('trans');
-        var x = document.createElement("AUDIO");
-        var y = document.createElement('p');
-        var z = document.createElement('p');
-        x.setAttribute("src", audio);
-        x.setAttribute('id','audio');
-        x.setAttribute('class', 'audio_drop');
-        y.setAttribute('class','speaker_text');
-        y.innerHTML = speaker;
-        z.innerHTML = trans;
-        target.appendChild(x);
-        target.appendChild(y);
-        target.appendChild(z);
+    e.preventDefault();
+    var target = e.target;
+    var audio = e.dataTransfer.getData('audio');
+    var speaker = e.dataTransfer.getData('speaker');
+    var trans = e.dataTransfer.getData('trans');
+    var x = document.createElement("AUDIO");
+    var y = document.createElement('p');
+    var z = document.createElement('p');
+    x.setAttribute("src", audio);
+    x.setAttribute('id','audio');
+    x.setAttribute('class', 'audio_drop');
+    y.setAttribute('class','speaker_text');
+    y.innerHTML = speaker;
+    z.innerHTML = trans;
+    target.appendChild(x);
+    target.appendChild(y);
+    target.appendChild(z);
+
     }
 
 
@@ -99,7 +140,7 @@ function cellDrop(e){
 
 
 
-}
+
 
 
 function clickme(e){
@@ -117,15 +158,14 @@ function doFirst(){
     for (i = 0; i < cells.length; i++){
         cells[i].setAttribute('draggable','true');
         cells[i].addEventListener("dragstart", cellDrag, false);
+        cells[i].addEventListener("drop", cellDrop, false);
 
         }
-
-
     button.addEventListener("click", clickme, false);
     theParent.addEventListener("dragstart", dragStart, false);
     theGrid.addEventListener("dragenter", function(e){e.preventDefault();}, false);
     theGrid.addEventListener("dragover", function(e){e.preventDefault();}, false);
-    theGrid.addEventListener("drop", dropped, false);
+    theGrid.addEventListener("drop", newDrop, false);
 
 }
 
