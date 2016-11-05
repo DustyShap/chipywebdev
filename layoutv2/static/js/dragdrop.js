@@ -21,27 +21,15 @@ function dragStart(e){
 function cellDrag(e){
 
     var fromResult = 'false';
-    var target = e.target;
-    var audio = $('#audio').attr('src');
-    var speaker = $('.speaker_text').text();
-    var trans = $('.transcripted_text').text()
+    var $target = e.target;
+    var audio = $(this).children()[0].getAttribute('src');
+    var speaker = $(this).children()[1].innerHTML;
+    var transcription = $(this).children()[2].innerHTML;
     e.dataTransfer.setData('audio', audio);
     e.dataTransfer.setData('speaker', speaker);
-    e.dataTransfer.setData('transcription', trans);
+    e.dataTransfer.setData('transcription', transcription);
     e.dataTransfer.setData('fromResult', fromResult);
-
-}
-
-function cellDrop(e){
-
-    var fromResult = e.dataTransfer.getData('fromResult');
-    var speaker = e.dataTransfer.getData('speaker');
-    if (fromResult == 'false'){
-        console.log('Dropped From Cell!');
-        console.log(speaker);
-        $('.speaker_text').val(speaker);
-
-    }
+    $target.innerHTML = '';
 
 }
 
@@ -52,7 +40,8 @@ function dropped(e){
     //Determine if the result object came from a cell
 
     var fromResult = e.dataTransfer.getData('fromResult');
-    if (fromResult == 'false'){
+
+    if (fromResult == 'false'){  //FromCell
 
         var target = e.target;
         if (target.firstChild) {
@@ -79,18 +68,11 @@ function dropped(e){
         $(this).append(y);
         $(this).append(z);
 
-
-
-
-
-
-
-
-
     } else {
 
         //Determine if the result came from a search result object
-        console.log('Dropped from Result!');
+
+        console.log('Dropped from Result!'); //From Result
         e.preventDefault();
         var target = e.target;
         if (target.getAttribute("class") === 'cell'){

@@ -9,6 +9,7 @@ $(document).ready(function(){
     $('form').on('submit', function(event) {
 
         $("#results_container").empty();
+        $("#instructions").hide();
 
         $.ajax({
             data : {
