@@ -6,7 +6,9 @@ $(document).ready(function(){
     var $result_object = $("#result_object")
 
 
-    $('form').on('submit', function(event) {
+
+    $('#form').on('submit', function(event) {
+
 
         $("#results_container").empty();
         $("#instructions").hide();
@@ -54,15 +56,6 @@ $(document).ready(function(){
     });
 
     $(".cell").click(function(){
-      if ($(this).find('audio').length) {
-        var audio = $(this).find('audio');
-        audio[0].play();
-        }
-
-    });
-
-    $("#result_object").click(function(){
-      console.log('test')
       if ($(this).find('audio').length) {
         var audio = $(this).find('audio');
         audio[0].play();

@@ -1,10 +1,15 @@
-from flask import Flask, render_template, request, jsonify
-import json
+from flask import Flask, render_template, request, jsonify, url_for
+from flask.ext.uploads import UploadSet, configure_uploads, AUDIO
 from models import *
 
 
 app = Flask(__name__)
 initialize_db()
+
+audio = UploadSet('audio', AUDIO)
+
+app.config['UPLOADED_AUDIO_DEST'] = 'static/audio'
+configure_uploads(app, audio)
 
 
 @app.route('/')
@@ -12,27 +17,44 @@ def home():
     return render_template("index.html")
 
 
+@app.route('/upload', methods=['GET','POST'])
+def upload():
+    filename = audio.save(request.files['audio'])
+    speaker = request.form['speaker'].lower().strip()
+    tags = request.form['tags'].lower()
+    transcription = request.form['transcription'].lower().replace("'","")
+    q = Drops.insert(filename=filename, speaker=speaker, tags=tags, transcription=transcription)
+    q.execute()
 
-@app.route('/process', methods=['POST'])
+    return jsonify({'file':filename})
+
+
+
+@app.route('/process', methods=['POST', 'GET'])
 def process():
     search_term = request.form['tags'].lower().strip()
     drops = Drops.select().where(Drops.tags.contains(search_term))
-    drops_as_dict = []
+    drops_as_list = []
 
     if drops:
 
         for drop in drops:
             drop_as_dict = {
+
                 'filename': drop.filename,
                 'speaker': drop.speaker,
                 'transcription': drop.transcription,
                 'search_term': search_term
             }
-            drops_as_dict.append(drop_as_dict)
+            drops_as_list.append(drop_as_dict)
 
-        return jsonify({'filename':drops_as_dict})
 
-    return jsonify({'filename': drops_as_dict})
+        return jsonify({'filename':drops_as_list})
+
+
+    return jsonify({'filename': drops_as_list})
+
+
 
 
 

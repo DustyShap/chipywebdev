@@ -4,7 +4,7 @@ db = SqliteDatabase('staticmeta/drops.db')
 
 class Drops(Model):
 
-	id = PrimaryKeyField()
+	id = PrimaryKeyField(unique=True)
 	filename = TextField()
 	speaker = TextField()
 	tags = TextField()

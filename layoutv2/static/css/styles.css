@@ -1,17 +1,19 @@
 html {
+
   height: 100%
+
   }
 
 body {
-  height: 100%;
+  height: 96%;
 }
 
 #wrapper {
 
 
-  margin: 10px;
+  margin: 9px 5px 0 5px;
   display: flex;
-  padding: 15px;
+  padding: 5px;
 
 
 }
@@ -23,6 +25,7 @@ body {
    width: 40%;
    margin-top: 22px;
    height: 93%;
+
 
 
 }
@@ -38,6 +41,15 @@ body {
 }
 
 #disclaimer {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75%;
+  text-align: center;
+}
+
+#upload_div {
 
   display: flex;
   justify-content: center;
@@ -64,11 +76,17 @@ body {
   font-size: 70%;
 }
 
+ol {
+  float: left;
+}
 
 #instructions {
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+
 
 
 }
@@ -143,7 +161,43 @@ body {
   align-items: center;
 
 
+
 }
+
+
+
+#pw_window {
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+#upload_pop {
+
+  display:none;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#upload_window {
+
+
+
+  width: 90%;
+  height: 80%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+
 
 #main_grid {
 
@@ -154,6 +208,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 flex: 1;
+
+
 
 }
 
@@ -205,4 +261,6 @@ margin: 0px;
   font-size: 75%;
   border-bottom: 1px solid blue;
 }
+
+
 
