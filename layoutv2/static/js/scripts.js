@@ -6,8 +6,23 @@ $(document).ready(function(){
     var $result_object = $("#result_object")
 
 
+    $("#search_term").keyup(function(){
+        if ($(this).val().length >= 3){
+
+            $("#bttn").prop('disabled', false).css('color','green');
+        }
+
+
+        if ($(this).val().length < 3){
+
+            $("#bttn").prop('disabled', true).css('color','red');
+
+        }
+    });
+
 
     $('#form').on('submit', function(event) {
+
 
 
         $("#results_container").empty();
