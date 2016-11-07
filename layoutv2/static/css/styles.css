@@ -108,6 +108,10 @@ ol {
 
 }
 
+#upload_button{
+  display: none;ç
+}
+
 #result_object {
 
   display:none;
