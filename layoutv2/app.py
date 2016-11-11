@@ -6,6 +6,7 @@ from models import *
 app = Flask(__name__)
 initialize_db()
 
+
 audio = UploadSet('audio', AUDIO)
 
 app.config['UPLOADED_AUDIO_DEST'] = 'static/audio'
@@ -23,8 +24,15 @@ def upload():
     speaker = request.form['speaker'].lower().strip()
     tags = request.form['tags'].lower()
     transcription = request.form['transcription'].lower().replace("'","")
-    q = Drops.insert(filename=filename, speaker=speaker, tags=tags, transcription=transcription)
-    q.execute()
+
+    Drops.create(
+
+
+        filename=filename,
+        speaker=speaker,
+        tags=tags,
+        transcription=transcription
+    )
 
     return jsonify({'file':filename})
 

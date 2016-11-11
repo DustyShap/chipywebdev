@@ -64,8 +64,6 @@
 
 
 
-
-
         <div id="main_wrap">
 
                 <div id="pw_window">
@@ -83,21 +81,21 @@
                                     <form method=POST enctype=multipart/form-data id="upload_form" disabled:true>
                                       <div class="form-group">
                                         <label for="audio">File Upload</label>
-                                        <input type=file class="form-control" id="audio" name=audio placeholder="Upload File">
+                                        <input type=file class="form-control" id="audio" name=audio placeholder="Upload File" required>
                                       </div>
                                       <div class="form-group">
                                         <label for="speaker">Speaker</label>
-                                        <input type="text" class="form-control" id="speaker" name="speaker" placeholder="Speaker">
+                                        <input type="text" class="form-control" id="speaker" name="speaker" placeholder="Speaker" required>
                                       </div>
                                         <div class="form-group">
                                         <label for="tags">Tags (separate by space)</label>
-                                        <textarea name="tags" style="width:250px; height;150px" id="tags" class="form-control"></textarea>
+                                        <textarea name="tags" style="width:250px; height;150px" id="tags" class="form-control" required></textarea>
                                       </div>
                                         <div class="form-group">
                                         <label for="transcription">Transcription:</label>
-                                        <textarea name="transcription" style="width:250px; height;150px" id="transcription" class="form-control"></textarea>
+                                        <textarea name="transcription" style="width:250px; height;150px" id="transcription" class="form-control" required></textarea>
                                       </div>
-                                        <button type="submit" class="btn btn-default" id="upload_button">Upload</button>
+                                        <button type="submit" class="btn btn-default" id="upload_submit">Upload</button>
                                         <button type="button" class="btn btn-default" id="upload_cancel">Cancel</button>
                                     </form>
 

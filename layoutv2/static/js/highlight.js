@@ -1,4 +1,3 @@
-
 jQuery.extend({
     highlight: function (node, re, nodeName, className) {
         if (node.nodeType === 3) {

@@ -2,6 +2,8 @@ $(document).ready(function(){
 
 
 
+
+
     $("#upload_button").click(function(){
 
         $("#main_grid").hide();
@@ -35,7 +37,7 @@ $(document).ready(function(){
 
 
         } else {
-            alert('NO')
+            alert('Incorrect Password')
         }
 
 
@@ -51,7 +53,14 @@ $(document).ready(function(){
     });
 
 
+
+
+
+
      $("#upload_form").on('submit', function(event){
+
+
+
 
         var form_data = new FormData($("#upload_form")[0]);
 

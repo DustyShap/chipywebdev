@@ -62,6 +62,7 @@ $(document).ready(function(){
                $("#result"+i + " #transcription").text("Transcription: " + transcription).css('color','blue');
                $("#result"+i + " #src").attr('src', full_url);
                $("p").highlight(search_term);
+               $("#search_term").val("");
 
             }
         });
