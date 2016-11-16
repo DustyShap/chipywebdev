@@ -6,18 +6,19 @@ html {
   }
 
 body {
+
   height: 96%;
 
 }
 
-#wrapper {
 
+
+#wrapper {
 
   margin: 9px 5px 0 5px;
   display: flex;
   padding: 5px;
   height: 100%;
-
 
 }
 
@@ -29,17 +30,16 @@ body {
    margin-top: 22px;
    height: 93%;
 
-
-
 }
 
 #title {
-  height: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 300%;
+
+   height: 90px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: 'Yanone Kaffeesatz', sans-serif;
+   font-size: 300%;
 
 }
 
@@ -50,7 +50,9 @@ body {
   align-items: center;
   font-size: 75%;
   text-align: center;
+
 }
+
 
 #upload_div {
 
@@ -59,12 +61,11 @@ body {
   align-items: center;
   font-size: 75%;
   text-align: center;
+
 }
 
 
-
 #search_container {
-
 
   margin-top: 15px;
   display: flex;
@@ -75,12 +76,28 @@ body {
 
 }
 
+
 .btn {
+
   font-size: 70%;
+
 }
 
+
 ol {
+
   float: left;
+
+}
+
+
+#selectmenu {
+
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 5px 0 15px 0;
+
 }
 
 #instructions {
@@ -89,10 +106,8 @@ ol {
   justify-content: center;
   align-items: center;
 
-
-
-
 }
+
 
 #results_container {
 
@@ -100,8 +115,8 @@ ol {
   margin-top: 5px;
   overflow: scroll;
 
-
 }
+
 
 #no_results {
 
@@ -111,9 +126,11 @@ ol {
 
 }
 
+
 #upload_button{
 
 }
+
 
 #result_object {
 
@@ -141,11 +158,10 @@ ol {
   display: flex;
   justify-content: center;
 
-
 }
 
-#meta_display {
 
+#meta_display {
 
   height: 65px;
   width: 100%;
@@ -159,29 +175,25 @@ ol {
     background-color: yellow;
 }
 
-#main_wrap {
 
+#main_wrap {
 
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 
-
-
 }
-
 
 
 #pw_window {
 
   display: none;
-
   justify-content: center;
   align-items: center;
 
-
 }
+
 
 #upload_pop {
 
@@ -191,9 +203,8 @@ ol {
 
 }
 
+
 #upload_window {
-
-
 
   width: 90%;
   height: 80%;
@@ -201,13 +212,10 @@ ol {
   justify-content: center;
   align-items: center;
 
-
 }
 
 
-
 #main_grid {
-
 
 width: 97%;
 height: 95%;
@@ -215,8 +223,6 @@ display: flex;
 flex-direction: column;
 align-items: center;
 flex: 1;
-
-
 
 }
 
@@ -231,9 +237,10 @@ flex: 1;
 
 
 .row:last-child {
-  margin-bottom: 0px;
-}
 
+  margin-bottom: 0px;
+
+}
 
 
 .cell {
@@ -246,27 +253,38 @@ flex: 1;
 }
 
 .cell:hover {
+
     border: 2px solid red;
     transition-duration: 0.1s;
     box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
 }
 
+
 .cell:last-child {
+
   margin-right: 0px;
+
 }
 
 
 p {
+
 margin: 0px;
+
 }
 
 .speaker_text {
+
   font-size: 80%;
+
 }
 
 .transcripted_text {
+
   font-size: 75%;
   border-bottom: 1px solid blue;
+
 }
 
 

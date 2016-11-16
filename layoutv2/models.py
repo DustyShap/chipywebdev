@@ -21,6 +21,9 @@ def initialize_db():
     db.connect()
     db.create_tables([Drops], safe=True)
 
+'''
 def csv_to_db():
 
     load_csv(db, 'staticmeta/drops.csv')
+
+'''

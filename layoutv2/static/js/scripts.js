@@ -79,6 +79,13 @@ $(document).ready(function(){
 
     });
 
+
+    $("#title").click(function(){
+        var clip = new Audio('http://insidestlaudio.com/drops/drops%201/CLIP%20THAT%20OFF.mp3');
+        clip.play();
+
+    })
+
 });
 
 

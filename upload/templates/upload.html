@@ -1,11 +1,43 @@
+<!DOCTYPE html>
+
 <html>
 <head>
     <title>Upload</title>
+    <link rel='stylesheet' type='text/css' href='static/css/styles.css' media='screen'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
-<form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
-    <input type=file name=photo>
-    <input type="submit>"
+
+<div id="wrap">
+<div id="form_wrap">
+<form method=POST enctype=multipart/form-data action="/upload">
+  <div class="form-group">
+    <label for="audio">File Upload</label>
+    <input type=file class="form-control" id="audio" name=audio placeholder="Upload File">
+  </div>
+  <div class="form-group">
+    <label for="speaker">Speaker</label>
+    <input type="text" class="form-control" id="speaker" name="speaker" placeholder="Speaker">
+  </div>
+    <div class="form-group">
+    <label for="tags">Tags (separate by space)</label>
+    <textarea name="tags" style="width:250px; height;150px" id="tags" class="form-control"></textarea>
+  </div>
+    <div class="form-group">
+    <label for="transcription">Transcription:</label>
+    <textarea name="transcription" style="width:250px; height;150px" id="transcription" class="form-control"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Upload</button>
 </form>
+</div>
+</div>
+
+<audio controls="controls">
+
+</audio>
+
 </body>
 </html>
