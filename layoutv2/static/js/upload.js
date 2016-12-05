@@ -2,6 +2,9 @@ $(document).ready(function(){
 
 
 
+    if ($("#search_term").is(':focus')){
+        console.log('POOP');
+    }
 
 
     $("#upload_button").click(function(){
@@ -77,7 +80,7 @@ $(document).ready(function(){
 
         .done(function(data){
 
-            console.log('OB');
+
 
         })
 
@@ -85,7 +88,7 @@ $(document).ready(function(){
         $("#main_grid").css('display','flex');
         $("#upload_window").css('display','none');
         $("#upload_button").show();
-        $("#form").show();
+        $("#bttn").prop('disabled', true).css('color','red');
 
 
 

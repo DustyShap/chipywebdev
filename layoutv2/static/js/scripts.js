@@ -21,7 +21,7 @@ $(document).ready(function(){
     });
 
 
-    $('#form').on('submit', function(event) {
+    $('#bttn').on('click', function(event) {
 
 
 
