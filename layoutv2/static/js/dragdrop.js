@@ -1,5 +1,6 @@
 function dragStart(e){
 
+
     console.log('dragStart');
     var target = e.target;
     var fromResult = 'true';
@@ -14,7 +15,6 @@ function dragStart(e){
     e.dataTransfer.setData('result_speaker', speaker);
     e.dataTransfer.setData('result_trans', trans);
     e.dataTransfer.setData('fromResult', fromResult);
-
 
 }
 
@@ -102,13 +102,7 @@ function dropped(e){
 
         };
 
-
-
-
-
-
-
-}
+} //End drop function
 
 
 

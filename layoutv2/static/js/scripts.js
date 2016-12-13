@@ -1,76 +1,32 @@
 $(document).ready(function(){
 
 
-    var $results = $("#results_container")
-    var url = "<source src=http://insidestlaudio.com/drops/drops%201/"
-    var $result_object = $("#result_object")
+    //Create function for submission and bind it to both enter as well as button click
+    //Autofocus input upon pageload
+    //JSON file with predetermined layout
+    //$.get to get info from that file and return as json object
+    //Bootstrap dropdown components
+    //Reformat JS
+    //JS Arrow function
 
 
+
+    //Search term input validation
     $("#search_term").keyup(function(){
-        if ($(this).val().length >= 3){
 
+        if ($(this).val().length >= 3){
             $("#bttn").prop('disabled', false).css('color','green');
         }
 
-
         if ($(this).val().length < 3){
-
             $("#bttn").prop('disabled', true).css('color','red');
-
         }
     });
 
 
-    $('#bttn').on('click', function(event) {
 
 
-
-        $("#results_container").empty();
-        $("#instructions").hide();
-
-        $.ajax({
-            data : {
-                tags: $('#search_term').val()
-            },
-            type: 'POST',
-            url: '/process'
-        })
-
-        .done(function(data){
-
-            if (data.filename.length < 1){
-                console.log('NONE');
-
-                $("#results_container").empty();
-
-            }
-
-            for (var i=0; i < data.filename.length; i++){
-
-
-                $results.show();
-
-
-               var filename = data.filename[i].filename;
-               var speaker = data.filename[i].speaker;
-               var transcription = data.filename[i].transcription;
-               var search_term = $('#search_term').val()
-               var full_url = "http://insidestlaudio.com/drops/drops%201/" + filename;
-               $result_object.clone().appendTo($("#results_container")).attr('id', 'result'+i).addClass("search_result");
-               $("#result"+i).attr('draggable','True');
-               $("#result"+i + " #speaker").text("Speaker: " + speaker).css('color','red');
-               $("#result"+i + " #transcription").text("Transcription: " + transcription).css('color','blue');
-               $("#result"+i + " #src").attr('src', full_url);
-               $("p").highlight(search_term);
-               $("#search_term").val("");
-
-            }
-        });
-
-        event.preventDefault();
-
-    });
-
+    //Play audio contained within individual cell
     $(".cell").click(function(){
       if ($(this).find('audio').length) {
         var audio = $(this).find('audio');
@@ -80,12 +36,15 @@ $(document).ready(function(){
     });
 
 
+    //Play CLIP THAT OFF when the title logo is clicked (may remove?)
     $("#title").click(function(){
         var clip = new Audio('http://insidestlaudio.com/drops/drops%201/CLIP%20THAT%20OFF.mp3');
         clip.play();
 
     })
 
-});
+
+
+});  //End of document ready wrap
 
 
